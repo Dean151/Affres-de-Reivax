@@ -1,0 +1,7 @@
+# Composer
+vendor/*
+*.phar
+*.lock
+
+# Credentials
+sql.php
