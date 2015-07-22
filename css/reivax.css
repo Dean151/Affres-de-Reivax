@@ -1,0 +1,37 @@
+html, body {
+	background-color: black;
+	color: white;
+	height: 100%;
+
+	background-image: url(../img/reivax.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: left top;
+    background-attachment: fixed;
+}
+
+#right {
+	background: black;
+	opacity: 0.7;
+	height: 100%;
+	padding: 0;
+}
+
+#menu {
+	width: 100%;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+/* TODO Should be only for laptops */
+#menu {
+	position: absolute;
+	top: 50%;
+	margin-top: -100px;
+}
+
+#menu h1 {
+	text-align: center;
+	border-bottom: 1px solid white;
+	padding-bottom: 10px;
+}

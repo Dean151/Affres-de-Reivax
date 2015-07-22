@@ -1,3 +1,18 @@
 {% include '_head.html' %}
-
+	<!-- Side menu -->
+	<div id="right" class="col-lg-4 col-lg-offset-8 
+						col-md-5 col-md-offset-7 
+						col-sm-6 col-sm-offset-6 
+						col-xs-12">
+		<nav id="menu">
+			<h1>Les affres de Reivax</h1>
+			{% if affres %}
+			<ul>
+				<li><a href=""></a></li>
+			</ul>
+			{% else %}
+			<p class="text-center">Aucune affre trouvée, désolé.</p>
+			{% endif %}
+		</nav>
+	</div>
 {% include '_foot.html' %}
