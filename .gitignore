@@ -5,3 +5,6 @@ vendor/*
 
 # Credentials
 sql.php
+
+# Images
+img/*

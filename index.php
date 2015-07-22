@@ -15,7 +15,8 @@
 	    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	    // Fetching stories
-	    $req = $dbh->prepare('SELECT bonus_tag as tag,
+	    $req = $dbh->prepare('SELECT bonus_id as id,
+	    							 bonus_tag as tag,
 	    							 bonus_titre as title,
 	    							 DATE_FORMAT(bonus_date,"%d/%m/%Y") as date,
 	    							 bonus_texte as description,
