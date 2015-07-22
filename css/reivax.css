@@ -33,6 +33,7 @@ a, a:hover, a:active, a:focus, a:visited {
 	position: absolute;
 	top: 50%;
 	margin-top: -100px;
+	margin-bottom: 30px;
 }
 
 #menu h1 {
@@ -103,7 +104,7 @@ a, a:hover, a:active, a:focus, a:visited {
 
 .footer {
 	margin: 10px;
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	right: 0;
 }
