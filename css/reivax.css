@@ -93,10 +93,17 @@ a, a:hover, a:active, a:focus, a:visited {
 	font-size: 1.2em;
 }
 
-.affre-detail a {
+.affre-detail a, .footer a {
 	opacity: 0.7;
 }
 
-.affre-detail a:hover {
+.affre-detail a:hover, .footer a:hover {
 	opacity: 1;
+}
+
+.footer {
+	margin: 10px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
 }

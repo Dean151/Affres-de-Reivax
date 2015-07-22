@@ -7,7 +7,6 @@
 		<nav id="menu">
 			<h1>Les affres de Reivax</h1>
 			{% if affres %}
-			<ul>
 			<div id="accordion">
 			  {% for affre in affres %}
 			  <div>
@@ -23,10 +22,11 @@
 			    </div>
 			  </div>	
 				{% endfor %}
-			</ul>
+			</div>
 			{% else %}
 			<p class="text-center">Aucune affre trouvée, désolé.</p>
 			{% endif %}
 		</nav>
+		<p class="footer text-right">Affres réalisées par Reivax - <a href="mailto:reivax.cafelembas.com">e-mail</a> - <a href="//www.cafelembas.com">café et lembas</a></p>
 	</div>
 {% include '_foot.html' %}
