@@ -1,8 +1,5 @@
 $(document).ready(function() {
-	var hash = window.location.hash.replace('#', ''); // On récupère l'id de l'affre dans l'anchor
-	if (hash.length > 0) {
-		$('#'+hash).collapse('show');
-	}
+	$(".affre-link").click(function (e) { e.preventDefault(); })
 });
 
 $('.collapse').on('show.bs.collapse', function () {

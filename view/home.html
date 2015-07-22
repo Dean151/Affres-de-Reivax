@@ -11,15 +11,15 @@
 			<div id="accordion">
 			  {% for affre in affres %}
 			  <div>
-			    <div id="{{ affre.tag }}-link" class="link">
-			    	<a href="#{{ affre.tag }}" class="affre-link trigger collapsed" role="button" data-toggle="collapse" data-parent="#accordion">{{ affre.title }}</a>
+			    <div id="{{ affre.tag }}-link" class="link {{ affre.tag == tag ? 'active' }}">
+			    	<a href="{{ affre.tag }}" class="affre-link trigger {{ affre.tag != tag ? 'collapsed' }}" role="button" data-target="#{{ affre.tag }}" data-toggle="collapse" data-parent="#accordion">{{ affre.title }}</a>
 			    </div>
-			    <div id="{{ affre.tag }}" class="collapse affre-detail" role="tabpanel">
+			    <div id="{{ affre.tag }}" class="collapse {{ affre.tag == tag ? 'in' }} affre-detail" role="tabpanel">
 			   		<p class="desc">{{ affre.description }}</p>
 			    	<audio class="col-xs-12" controls="controls" onplaying="countStream('bonus', {{ affre.id }})" preload="metadata">
 						<source src="http://file.cafelembas.com/bonus/reivax/{{ affre.file }}" type="audio/mp3" />
 					</audio>
-					<p class="text-right"><a href="/#{{ affre.tag }}">permalien</a> - <a href="//www.cafelembas.com/telecharger/bonus/reivax/{{ affre.tag }}">télécharger</a></p>
+					<p class="text-right"><small>{{ affre.date }}</small> - <a href="/{{ affre.tag }}">permalien</a> - <a href="//www.cafelembas.com/telecharger/bonus/reivax/{{ affre.tag }}">télécharger</a></p>
 			    </div>
 			  </div>	
 				{% endfor %}

@@ -9,6 +9,12 @@
 	
 	$data = array();
 
+	if (isset($_GET['tag'])) {
+		if (preg_match("#^([a-zA-Z0-9\-]+)$#", $_GET['tag'])) {
+			$data['tag'] = $_GET['tag'];
+		}
+	}
+
 	// PDO MySQL connexion
 	try {
 		$dbh = new PDO($dsn, $user, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
