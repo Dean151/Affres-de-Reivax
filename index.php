@@ -9,4 +9,26 @@
 	
 	$data = array();
 
+	// PDO MySQL connexion
+	try {
+		$dbh = new PDO($dsn, $user, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+	    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+	    // Fetching stories
+	    $req = $dbh->prepare('SELECT bonus_tag as tag,
+	    							 bonus_titre as title,
+	    							 DATE_FORMAT(bonus_date,"%d/%m/%Y") as date,
+	    							 bonus_texte as description,
+	    							 bonus_file as file
+	    					  FROM v3_bonus 
+	    					  WHERE bonus_type = "reivax" AND bonus_online = "1" AND bonus_date < NOW()');
+	    $req->execute();
+	    $data['affres'] = $req->fetchAll();
+
+	} catch (PDOException $e) {
+	    echo 'Échec SQL : ' . $e->getMessage();
+	}
+	// Closing PDO connexion
+	$dbh = null;
+
 	echo $twig->render('home.html', $data);

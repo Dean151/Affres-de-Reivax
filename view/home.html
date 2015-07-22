@@ -8,7 +8,9 @@
 			<h1>Les affres de Reivax</h1>
 			{% if affres %}
 			<ul>
-				<li><a href=""></a></li>
+				{% for affre in affres %}
+				<li><a href="#{{ affre.tag }}">{{ affre.title }}</a></li>
+				{% endfor %}
 			</ul>
 			{% else %}
 			<p class="text-center">Aucune affre trouvée, désolé.</p>
