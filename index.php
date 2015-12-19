@@ -1,4 +1,4 @@
-<?
+<?php
 	// Loading composer libraries
 	require_once __DIR__ . '/inc/sql.php';
 	require_once __DIR__ . '/vendor/autoload.php';
