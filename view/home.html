@@ -16,7 +16,7 @@
 			    <div id="{{ affre.tag }}" class="collapse {{ affre.tag == tag ? 'in' }} affre-detail" role="tabpanel">
 			   		<p class="desc">{{ affre.description }}</p>
 			    	<audio class="col-xs-12" controls="controls" onplaying="countStream('bonus', {{ affre.id }})" preload="metadata">
-						<source src="http://file.cafelembas.com/bonus/reivax/{{ affre.file }}" type="audio/mp3" />
+						<source src="//file.cafelembas.com/bonus/reivax/{{ affre.file }}" type="audio/mp3" />
 					</audio>
 					<p class="text-right"><small>{{ affre.date }}</small> - <a href="/{{ affre.tag }}">permalien</a> - <a href="//www.cafelembas.com/telecharger/bonus/reivax/{{ affre.tag }}">télécharger</a></p>
 			    </div>
@@ -27,6 +27,6 @@
 			<p class="text-center">Aucune affre trouvée, désolé.</p>
 			{% endif %}
 		</nav>
-		<p class="footer text-right"><small>Affres réalisées par Reivax</small> - <a href="mailto:reivax.cafelembas.com">e-mail</a> - <a href="//www.cafelembas.com">café et lembas</a></p>
+		<p class="footer text-right"><small>Affres réalisées par Reivax</small> - <a href="mailto:reivax@cafelembas.com">e-mail</a> - <a href="//www.cafelembas.com">café et lembas</a></p>
 	</div>
 {% include '_foot.html' %}
