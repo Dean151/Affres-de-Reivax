@@ -7,9 +7,23 @@
 
     <div class="wrapper">
         <h1>{{ site.title }}</h1>
-
+        {%- assign monos = site.pages | sort: 'date' -%}
+        {% for mono in monos -%}
+          {% if mono.title %}
+          {% if page.url == mono.url %}<section class="active">{% else %}<section>{% endif %}
+            <h2><a href="{{ mono.url | relative_url }}">{{ mono.title }}</a></h2>
+            <article>
+              <p>{{ mono.description }}</p>
+              <audio controls="controls" preload="metadata">
+                <source src="{{ mono.file }}" type="audio/mp3" />
+              </audio>
+              <span>{{ mono.date | date: "%d/%m/%Y" }} — <a href="{{ mono.url | absolute_url }}" target="_blank">permalien</a> - <a href="{{ mono.file }}" target="_blank">télécharger</a></span>
+            </article>
+          </section>
+          {% endif %}
+        {% endfor %} 
         <footer>
-          <p>Affres réalisées par {{ site.author }} — <a href="mailto:{{ site.email }}">e-mail</a> — <a href="{{ site.website }}">café &amp; lembas</a></p>
+          <p>Affres réalisées par {{ site.author }} — <a href="mailto:{{ site.email }}">e-mail</a> — <a href="{{ site.website }}" target="_blank">café &amp; lembas</a></p>
         </footer>
 
     </div>
