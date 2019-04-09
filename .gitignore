@@ -1,7 +1,4 @@
-# Composer
-vendor/*
-*.phar
-*.lock
-
-# Credentials
-sql.php
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
