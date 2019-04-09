@@ -1,15 +1,20 @@
 <!doctype html>
 <html lang="fr">
 
-  {% include head.html %}
+  {% include head.html -%}
 
   <body>
 
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
+    <div class="wrapper">
+        <h1>{{ site.title }}</h1>
+
+        <footer>
+          <p>Affres réalisées par {{ site.author }} — <a href="mailto:{{ site.email }}">e-mail</a> — <a href="{{ site.website }}">café &amp; lembas</a></p>
+        </footer>
+
     </div>
+
+    {% include foot.html -%}
 
   </body>
 
