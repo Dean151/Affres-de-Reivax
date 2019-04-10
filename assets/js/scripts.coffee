@@ -26,10 +26,10 @@ clickBehavior = (event) ->
     false
 
 audioBehaviors = (element) ->
-    element.addEventListener 'play', (event) -> Piwik?.getAsyncTracker()?.trackEvent('Audio', 'Play', element.attr('data-title'), element.currentTime)
-    element.addEventListener 'pause', (event) -> Piwik?.getAsyncTracker()?.trackEvent('Audio', 'Pause', element.attr('data-title'), element.currentTime)
-    element.addEventListener 'seeked', (event) -> Piwik?.getAsyncTracker()?.trackEvent('Audio', 'Seeked', element.attr('data-title'), element.currentTime)
-    element.addEventListener 'ended', (event) -> Piwik?.getAsyncTracker()?.trackEvent('Audio', 'Ended', element.attr('data-title'), element.currentTime)
+    element.addEventListener 'play', (event) -> Piwik?.getAsyncTracker()?.trackEvent('Audio', 'Play', element.getAttribute('data-title'), element.currentTime)
+    element.addEventListener 'pause', (event) -> Piwik?.getAsyncTracker()?.trackEvent('Audio', 'Pause', element.getAttribute('data-title'), element.currentTime)
+    element.addEventListener 'seeked', (event) -> Piwik?.getAsyncTracker()?.trackEvent('Audio', 'Seeked', element.getAttribute('data-title'), element.currentTime)
+    element.addEventListener 'ended', (event) -> Piwik?.getAsyncTracker()?.trackEvent('Audio', 'Ended', element.getAttribute('data-title'), element.currentTime)
 
 window.onpopstate = (event) ->
     if event.state?.id?
