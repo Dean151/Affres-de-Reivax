@@ -5,6 +5,6 @@
         <audio controls="controls" preload="metadata">
         <source src="{{ include.mono.file }}" type="audio/mp3" />
         </audio>
-        <span>{{ include.mono.date | date: "%d/%m/%Y" }} — <a href="{{ include.mono.url | absolute_url }}" target="_blank">permalien</a> - <a href="{{ include.mono.file }}" target="_blank">télécharger</a></span>
+        <span>{{ include.mono.date | date: "%d/%m/%Y" }} — {% if mono.comments %}<a href="{{ mono.comments }}" target="_blank">commenter</a> - {% endif %}<a href="{{ include.mono.file }}" target="_blank">télécharger</a></span>
     </article>
 </section>
