@@ -1,8 +1,6 @@
 ---
 ---
 
-piwik = Piwik?.getAsyncTracker()
-
 clickBehavior = (event) ->
     event?.preventDefault()
     section = this.parentElement.parentElement 
@@ -23,20 +21,20 @@ clickBehavior = (event) ->
         link = '/'
     if event?
         history.pushState { id: section.getAttribute('id') }, title, link
-        piwik?.trackLink link, 'link'
+        Piwik?.getAsyncTracker()?.trackLink link, 'link'
     document.title = title
     false
 
 downloadBehavior = (event) ->
     link = this.getAttribute 'href'
-    piwik?.trackLink link, 'download'
+    Piwik?.getAsyncTracker()?.trackLink link, 'download'
     true
 
 audioBehaviors = (element) ->
-    element.addEventListener 'play', (event) -> piwik?.trackEvent('Audio', 'Play', element.src, element.currentTime)
-    element.addEventListener 'pause', (event) -> piwik?.trackEvent('Audio', 'Pause', element.src, element.currentTime)
-    element.addEventListener 'seeked', (event) -> piwik?.trackEvent('Audio', 'Seeked', element.src, element.currentTime)
-    element.addEventListener 'ended', (event) -> piwik?.trackEvent('Audio', 'Ended', element.src, element.currentTime)
+    element.addEventListener 'play', (event) -> Piwik?.getAsyncTracker()?.trackEvent('Audio', 'Play', element.src, element.currentTime)
+    element.addEventListener 'pause', (event) -> Piwik?.getAsyncTracker()?.trackEvent('Audio', 'Pause', element.src, element.currentTime)
+    element.addEventListener 'seeked', (event) -> Piwik?.getAsyncTracker()?.trackEvent('Audio', 'Seeked', element.src, element.currentTime)
+    element.addEventListener 'ended', (event) -> Piwik?.getAsyncTracker()?.trackEvent('Audio', 'Ended', element.src, element.currentTime)
 
 window.onpopstate = (event) ->
     if event.state?.id?
