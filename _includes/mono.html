@@ -1,5 +1,6 @@
-{% if page.url == include.mono.url %}<section class="active">{% else %}<section>{% endif %}
-    <h2><a href="{{ include.mono.url | relative_url }}">{{ include.mono.title }}</a></h2>
+{% capture id %}{{ include.mono.url | slugify: "latin" }}{% endcapture %}
+{% if page.url == include.mono.url %}<section id="{{ id }}" class="active">{% else %}<section id="{{ id }}">{% endif %}
+    <h2><a href="{{ include.mono.url | relative_url }}" class="mono-link" data-title="{{ mono.title | append: ' — ' | escape }}{{ site.title | escape }}">{{ include.mono.title }}</a></h2>
     {% if page.url == include.mono.url %}<article>{% else %}<article aria-hidden="true">{% endif %}
         <p>{{ include.mono.description }}</p>
         <audio controls="controls" preload="metadata">

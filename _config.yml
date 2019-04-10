@@ -3,3 +3,6 @@ description: "Écoutez les affres, des histoires audio plus sombres qu'elles n'y
 author: Reivax
 email: reivax@cafelembas.com
 website: //www.cafelembas.com
+
+plugins:
+  - jekyll-coffeescript
