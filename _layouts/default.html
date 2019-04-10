@@ -9,7 +9,7 @@
 
       <div class="subwrapper">
         
-        <h1>{{ site.title }}</h1>
+        <h1><a href="{{ '/' | relative_path }}">{{ site.title }}</a></h1>
 
         {%- assign monos = site.pages | sort: 'date' -%}
         {% for mono in monos -%}

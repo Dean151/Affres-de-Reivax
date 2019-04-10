@@ -24,8 +24,14 @@ h1 {
 
 section {
 
+    &:first-of-type {
+        border-top: 1px solid $border-color;
+    }
+    &:last-of-type {
+        border-bottom: 1px solid $border-color;
+    }
+
     h2 {
-        margin-top: -1px;
         border-top: 1px solid $border-color;
         border-bottom: 1px solid $border-color;
 
@@ -78,6 +84,7 @@ section {
         article {
             padding: $spacing-unit / 2 $spacing-unit;
             max-height: 200px;
+            border-bottom: 1px solid $border-color;
         }
     }
 }
