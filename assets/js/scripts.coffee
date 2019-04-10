@@ -25,11 +25,6 @@ clickBehavior = (event) ->
     document.title = title
     false
 
-downloadBehavior = (event) ->
-    link = this.getAttribute 'href'
-    Piwik?.getAsyncTracker()?.trackLink link, 'download'
-    true
-
 audioBehaviors = (element) ->
     element.addEventListener 'play', (event) -> Piwik?.getAsyncTracker()?.trackEvent('Audio', 'Play', element.src, element.currentTime)
     element.addEventListener 'pause', (event) -> Piwik?.getAsyncTracker()?.trackEvent('Audio', 'Pause', element.src, element.currentTime)
@@ -52,9 +47,6 @@ window.onpopstate = (event) ->
 
 links = document.getElementsByClassName 'mono-link'
 link.addEventListener 'click', clickBehavior for link in links
-
-downloads = document.getElementsByClassName 'download-link'
-download.addEventListener 'click', downloadBehavior for download in downloads
 
 audios = document.getElementsByTagName 'audio'
 audioBehaviors audio for audio in audios
