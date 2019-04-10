@@ -1,0 +1,89 @@
+
+.wrapper {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &::before {
+        // Trick to make the vertical align works
+        content: "";
+    }
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: $spacing-unit;
+}
+
+section {
+
+    h2 {
+        margin-top: -1px;
+        border-top: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
+
+        @include transition((background-color, border-color, color), $transition-duration);
+
+        a {
+            display: block;
+            opacity: 1;
+            padding: $spacing-unit / 4 $spacing-unit;
+        }
+
+        &:hover, &:focus {
+            background: rgba($text-color, 0.15);
+            border-color: $text-color;
+        }
+    }
+
+    article {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 $spacing-unit;
+
+        display: flex;
+        flex-direction: column;
+        
+        @include transition((padding, max-height), $transition-duration);
+
+        audio {
+            padding: $spacing-unit / 2;
+        }
+
+        span {
+            @include relative-font-size(0.75);
+            text-align: right;
+        }
+    }
+
+    &.active {
+
+        h2 {
+            background: $text-color;
+            border-color: $text-color;
+
+            a {
+                color: $background-color;
+                opacity: 1;
+            }
+        }
+
+        article {
+            padding: $spacing-unit / 2 $spacing-unit;
+            max-height: 150px;
+        }
+    }
+}
+
+footer {
+    margin: $spacing-unit;
+    @include relative-font-size(0.75);
+    text-align: right;
+}

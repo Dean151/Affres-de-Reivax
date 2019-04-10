@@ -1,0 +1,58 @@
+
+/**
+ * Reset some basic elements
+ */
+ body, h1, h2, h3, h4, h5, h6,
+ p, blockquote, pre, hr,
+ dl, dd, ol, ul, figure {
+     margin: 0;
+     padding: 0;
+}
+
+body {
+    font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+    color: $text-color;
+    background-color: $background-color;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-feature-settings: "kern" 1;
+    -moz-font-feature-settings: "kern" 1;
+    -o-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+
+    background-image: url(../img/reivax.jpg);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: left top;
+    background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+}
+
+a {
+    color: $text-color;
+    opacity: 0.8;
+    text-decoration: none;
+
+    &:hover, &:focus {
+        opacity: 1;
+    }
+}
+
+.wrapper {
+    width: 33.3%;
+
+    @include media-query($on-laptop) {
+        width: 41.6%
+    }
+    
+    @include media-query($on-tablet) {
+        width: 50%
+    }
+    
+    @include media-query($on-palm) {
+        width: 100%
+    }
+}

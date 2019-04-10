@@ -2,8 +2,23 @@
 @charset "utf-8";
 
 // Our variables
-$on-palm:    600px;
-$on-laptop: 1000px;
+$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$base-font-size:   16px;
+$base-font-weight: 400;
+$base-line-height: 1.5;
+
+$background-color: black;
+$text-color: #ccc;
+$border-color: #666;
+
+$spacing-unit: 30px;
+
+$transition-duration: 0.4s;
+
+// Our break points
+$on-palm: 768px;
+$on-tablet: 992px;
+$on-laptop: 1200px;
 
 // Use media queries like this:
 // @include media-query($on-palm) {
@@ -15,5 +30,23 @@ $on-laptop: 1000px;
     }
 }
 
+@mixin relative-font-size($ratio) {
+    font-size: $base-font-size * $ratio;
+}
+
+@mixin transition($properties, $duration) {
+    -o-transition-property: $properties;
+    -o-transition-duration: $duration;
+    -moz-transition-property: $properties;
+    -moz-transition-duration: $duration;
+    -webkit-transition-property: $properties;
+    -webkit-transition-duration: $duration;
+    transition-property: $properties;
+    transition-duration: $duration;
+}
+
 // Import partials from `sass_dir` (defaults to `_sass`)
-@import "base", "layout";
+@import
+        "base",
+        "layout"
+;

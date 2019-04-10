@@ -1,0 +1,10 @@
+{% if page.url == include.mono.url %}<section class="active">{% else %}<section>{% endif %}
+    <h2><a href="{{ include.mono.url | relative_url }}">{{ include.mono.title }}</a></h2>
+    {% if page.url == include.mono.url %}<article>{% else %}<article aria-hidden="true">{% endif %}
+        <p>{{ include.mono.description }}</p>
+        <audio controls="controls" preload="metadata">
+        <source src="{{ include.mono.file }}" type="audio/mp3" />
+        </audio>
+        <span>{{ include.mono.date | date: "%d/%m/%Y" }} — <a href="{{ include.mono.url | absolute_url }}" target="_blank">permalien</a> - <a href="{{ include.mono.file }}" target="_blank">télécharger</a></span>
+    </article>
+</section>
