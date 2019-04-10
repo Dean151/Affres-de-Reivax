@@ -1,0 +1,33 @@
+{%- assign url = page.url | replace:'index.html','' | absolute_url -%}
+{%- assign image = '/assets/img/reivax.jpg' | relative_url -%}
+{%- capture title -%}{%- if page.title -%}{{ page.title | append: ' — ' | escape }}{%- endif -%}{{ site.title | escape }}{%- endcapture -%}
+{%- capture description -%}{%- if page.description -%}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{%- else -%}{{ site.description }}{%- endif -%}{%- endcapture -%}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{ title }}</title>
+
+    <meta name="description" content="{{description}}">
+    <meta name="author" content="{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}">
+    <meta name="generator" content="Jekyll v{{ jekyll.version }}">
+
+    <meta itemprop="name" content="{{ title }}">
+    <meta itemprop="description" content="{{ description  }}">
+    <meta itemprop="image" content="{{ image }}">
+
+    <meta property="og:url" content="{{ url }}">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{  description  }}">
+    <meta property="og:image" content="{{ image }}">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{  description  }}">
+    <meta name="twitter:image" content="{{ image }}">
+
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ 'now' | date: "%Y%m%d%H%M" }}">
+    <link rel="canonical" href="{{ url }}">
+</head>

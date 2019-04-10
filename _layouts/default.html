@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr">
+
+  {% include head.html -%}
+
+  <body data-title="{{ site.title | escape }}">
+
+    <div class="wrapper">
+
+      <div class="subwrapper">
+        
+        <h1><a href="{{ '/' | relative_path }}">{{ site.title | escape }}</a></h1>
+
+        {%- assign monos = site.pages | sort: 'date' -%}
+        {% for mono in monos -%}
+          {% if mono.title %}
+            {% include mono.html mono=mono %}
+          {% endif %}
+        {% endfor %} 
+
+      </div>
+      
+      <footer>
+          <p>Affres réalisées par {{ site.author }} — <a href="mailto:{{ site.email }}">e-mail</a> — <a href="{{ site.website }}" target="_blank">café &amp; lembas</a></p>
+        </footer>
+
+    </div>
+
+    {% include foot.html -%}
+
+  </body>
+
+</html>

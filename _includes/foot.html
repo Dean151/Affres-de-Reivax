@@ -1,0 +1,16 @@
+<script src="{{ '/assets/js/scripts.js' | relative_url }}?v={{ 'now' | date: "%Y%m%d%H%M" }}"></script>
+{% unless site.url contains "localhost" %}
+<script>
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    _paq.push(['setTrackerUrl', '/p/']);
+    _paq.push(['setSiteId', '13']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.defer=true; g.src='/p/'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<script src="{{ '/assets/js/stream.js' | relative_url }}?v={{ 'now' | date: "%Y%m%d%H%M" }}"></script>
+<noscript><p><img src="/p/?idsite=13&rec=1" style="border:0;" alt="" /></p></noscript>
+{% endunless %}

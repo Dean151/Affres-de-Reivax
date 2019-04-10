@@ -1,0 +1,8 @@
+title: Les affres de Reivax
+description: "Écoutez les affres, des histoires audio plus sombres qu'elles n'y parraissent."
+author: Reivax
+email: reivax@cafelembas.com
+website: //www.cafelembas.com
+
+plugins:
+  - jekyll-coffeescript
