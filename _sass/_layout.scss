@@ -51,10 +51,10 @@ section {
         display: flex;
         flex-direction: column;
         
-        @include transition((padding, max-height), $transition-duration);
+        @include transition((padding-top, padding-bottom, max-height), $transition-duration);
 
         audio {
-            padding: $spacing-unit / 2;
+            margin: $spacing-unit / 2;
         }
 
         span {
