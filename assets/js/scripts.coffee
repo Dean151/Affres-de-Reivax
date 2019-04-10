@@ -21,7 +21,9 @@ clickBehavior = (event) ->
         link = '/'
     if event?
         history.pushState { id: section.getAttribute('id') }, title, link
-        Piwik?.getAsyncTracker()?.trackLink link, 'link'
+        Piwik?.getAsyncTracker()?.setCustomUrl link
+        Piwik?.getAsyncTracker()?.setDocumentTitle title
+        Piwik?.getAsyncTracker()?.trackPageView()
     document.title = title
     false
 
