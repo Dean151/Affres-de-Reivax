@@ -11,6 +11,8 @@
     flex-direction: column;
     justify-content: space-between;
 
+    background: rgba($background-color, 0.4);
+
     &::before {
         // Trick to make the vertical align works
         content: "";
