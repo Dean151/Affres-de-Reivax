@@ -46,8 +46,7 @@ section {
         }
 
         &:hover, &:focus {
-            background: rgba($text-color, 0.15);
-            border-color: $text-color;
+            background: $border-color
         }
     }
 
