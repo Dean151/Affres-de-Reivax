@@ -39,12 +39,9 @@ window.onpopstate = (event) ->
     else
       sections = document.getElementsByClassName 'active'
       s = sections[0]
-    console.log s
     if s?
         t = s.getElementsByTagName 'h2'
-        console.log t
         l = t[0].getElementsByTagName 'a'
-        console.log l
         clickBehavior.call(l[0]);
 
 links = document.getElementsByClassName 'mono-link'
