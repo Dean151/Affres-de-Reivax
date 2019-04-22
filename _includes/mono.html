@@ -1,10 +1,10 @@
 {% capture id %}{{ include.mono.url | slugify: "latin" }}{% endcapture %}
 {% if page.url == include.mono.url %}<section id="{{ id }}" class="active">{% else %}<section id="{{ id }}">{% endif %}
-    <h2><a href="{{ include.mono.file | escape | prepend: 'files/' | relative_url }}" class="mono-link" data-title="{{ mono.title | append: ' — ' | escape }}{{ site.title | escape }}">{{ include.mono.title | escape }}</a></h2>
+    <h2><a href="{{ include.mono.url | relative_url }}" class="mono-link" data-title="{{ mono.title | append: ' — ' | escape }}{{ site.title | escape }}">{{ include.mono.title | escape }}</a></h2>
     {% if page.url == include.mono.url %}<article>{% else %}<article aria-hidden="true">{% endif %}
         <p>{{ include.mono.description | escape }}</p>
         <audio controls="controls" preload="metadata" data-title="{{ mono.title | escape }}">
-        <source src="{{ include.mono.file | escape }}" type="audio/mp3" />
+        <source src="{{ include.mono.file | escape | prepend: 'files/' | relative_url }}" type="audio/mp3" />
         </audio>
         <span>{{ include.mono.date | date: "%d/%m/%Y" }} — {% if mono.comments %}<a href="{{ mono.comments | escape }}" target="_blank">commenter</a> - {% endif %}<a href="{{ include.mono.file | escape | prepend: 'files/' | relative_url }}" class="download-link" download>télécharger</a></span>
     </article>
