@@ -17,7 +17,7 @@ title: Les affres de Reivax
 description: "Écoutez les affres, des histoires audio plus sombres qu'elles n'y parraissent."
 author: Reivax
 email: reivax@cafelembas.com
-website: //www.cafelembas.com
+website: https//www.cafelembas.com
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.affres-de-reivax.fr" # the base hostname & protocol for your site
 
@@ -25,6 +25,7 @@ url: "https://www.affres-de-reivax.fr" # the base hostname & protocol for your s
 markdown: kramdown
 plugins:
   - jekyll-coffeescript
+  - jekyll-sitemap
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
