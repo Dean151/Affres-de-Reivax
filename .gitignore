@@ -1,5 +1,4 @@
-.jekyll-cache
-.jekyll-metadata
-.sass-cache
+public/
+resources/
+.hugo_build.lock
 .vscode
-_site/

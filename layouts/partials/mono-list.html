@@ -1,0 +1,3 @@
+{{ range site.RegularPages.ByDate }}
+  {{ partial "mono.html" (dict "page" $ "mono" .) }}
+{{ end }}

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="fr">
+  {{ partial "head.html" . }}
+  <body data-title="{{ site.Title }}">
+    <div class="wrapper">
+      <div class="subwrapper">
+        <h1><a href="{{ "/" | relURL }}">{{ site.Title }}</a></h1>
+        {{ block "main" . }}{{ end }}
+      </div>
+
+      <footer>
+        <p>Affres réalisées par {{ site.Params.author }} — <a href="mailto:{{ site.Params.email }}">e-mail</a> — <a href="{{ site.Params.website }}" target="_blank" rel="noopener">café &amp; lembas</a></p>
+      </footer>
+    </div>
+
+    {{ partial "foot.html" . }}
+  </body>
+</html>

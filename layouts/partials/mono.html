@@ -1,0 +1,14 @@
+{{ $page := .page }}
+{{ $mono := .mono }}
+{{ $isActive := and (not $page.IsHome) (eq $page.RelPermalink $mono.RelPermalink) }}
+{{ $id := anchorize (path.Base $mono.RelPermalink) }}
+<section id="{{ $id }}"{{ if $isActive }} class="active"{{ end }}>
+  <h2><a href="{{ $mono.RelPermalink }}" class="mono-link" data-title="{{ printf "%s — %s" $mono.Title site.Title }}">{{ $mono.Title }}</a></h2>
+  <article{{ if not $isActive }} aria-hidden="true"{{ end }}>
+    <p>{{ $mono.Params.description }}</p>
+    <audio controls="controls" preload="metadata" data-title="{{ $mono.Title }}">
+      <source src="{{ printf "files/%s" $mono.Params.file | relURL }}" type="audio/mp3">
+    </audio>
+    <span>{{ $mono.Date.Format "02/01/2006" }} — {{ with $mono.Params.comments }}<a href="{{ . }}" target="_blank" rel="noopener">commenter</a> - {{ end }}<a href="{{ printf "files/%s" $mono.Params.file | relURL }}" class="download-link" download>télécharger</a></span>
+  </article>
+</section>

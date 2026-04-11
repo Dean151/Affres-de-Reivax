@@ -1,4 +1,4 @@
-name: Build Jekyll
+name: Build & Deploy
 
 on:
   push:
@@ -9,21 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v6
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
+    - name: Set up Hugo
+      uses: peaceiris/actions-hugo@v3
       with:
-        ruby-version: '3.1'
-    - name: Install dependencies
-      run: bundle install
+        extended: true
     - name: Build
-      run: bundle exec jekyll build
-    - name: Rsync deploy
-      uses: Burnett01/rsync-deployments@5.2.1
+      run: hugo --minify
+    - name: Deploy
+      uses: cloudflare/wrangler-action@v3
       with:
-        switches: -avzr --delete
-        path: _site/
-        remote_path: ${{ secrets.DEPLOY_PATH }}
-        remote_host: ${{ secrets.DEPLOY_HOST }}
-        remote_port: ${{ secrets.DEPLOY_PORT }}
-        remote_user: ${{ secrets.DEPLOY_USER }}
-        remote_key: ${{ secrets.DEPLOY_KEY }}
+        apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        command: pages deploy public --project-name=affres-de-reivax

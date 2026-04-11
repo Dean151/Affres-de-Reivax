@@ -1,0 +1,12 @@
+baseURL = "https://www.affres-de-reivax.fr/"
+languageCode = "fr"
+defaultContentLanguage = "fr"
+title = "Les affres de Reivax"
+uglyURLs = true
+disableKinds = ["taxonomy", "term", "RSS"]
+
+[params]
+description = "Écoutez les affres, des histoires audio plus sombres qu'elles n'y paraissent."
+author = "Reivax"
+email = "reivax@cafelembas.com"
+website = "https://www.cafelembas.com"

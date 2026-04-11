@@ -1,4 +1,187 @@
----
----
+@charset "utf-8";
 
-@import "main";
+$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$base-font-size: 16px;
+$base-font-weight: 400;
+$base-line-height: 1.5;
+
+$background-color: black;
+$text-color: #ccc;
+$border-color: #333;
+
+$spacing-unit: 30px;
+
+$transition-duration: 0.4s;
+
+$on-palm: 768px;
+$on-tablet: 992px;
+$on-laptop: 1200px;
+
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@mixin relative-font-size($ratio) {
+  font-size: $base-font-size * $ratio;
+}
+
+@mixin transition($properties, $duration) {
+  -o-transition-property: $properties;
+  -o-transition-duration: $duration;
+  -moz-transition-property: $properties;
+  -moz-transition-duration: $duration;
+  -webkit-transition-property: $properties;
+  -webkit-transition-duration: $duration;
+  transition-property: $properties;
+  transition-duration: $duration;
+}
+
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+  color: $text-color;
+  background-color: $background-color;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: "kern" 1;
+  -moz-font-feature-settings: "kern" 1;
+  -o-font-feature-settings: "kern" 1;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+
+  background-image: url(/img/reivax.jpg);
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: left top;
+  background-attachment: fixed;
+
+  @include media-query($on-palm) {
+    background-position: center top;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+}
+
+a {
+  color: $text-color;
+  opacity: 0.8;
+  text-decoration: none;
+
+  &:hover, &:focus {
+    opacity: 1;
+  }
+}
+
+.wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 33.3%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba($background-color, 0.4);
+
+  &::before {
+    content: "";
+  }
+
+  @include media-query($on-laptop) {
+    width: 41.6%;
+  }
+
+  @include media-query($on-tablet) {
+    width: 50%;
+  }
+
+  @include media-query($on-palm) {
+    width: 100%;
+  }
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: $spacing-unit;
+}
+
+section {
+  &:first-of-type {
+    border-top: 1px solid $border-color;
+  }
+
+  &:last-of-type {
+    border-bottom: 1px solid $border-color;
+  }
+
+  h2 {
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+
+    @include transition((background-color, border-color, color), $transition-duration);
+
+    a {
+      display: block;
+      opacity: 1;
+      padding: $spacing-unit / 4 $spacing-unit;
+    }
+
+    &:hover, &:focus {
+      background: $border-color;
+    }
+  }
+
+  article {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 $spacing-unit;
+    display: flex;
+    flex-direction: column;
+
+    @include transition((padding-top, padding-bottom, max-height), $transition-duration);
+
+    audio {
+      margin: $spacing-unit / 2;
+    }
+
+    span {
+      @include relative-font-size(0.75);
+      text-align: right;
+    }
+  }
+
+  &.active {
+    h2 {
+      background: $text-color;
+      border-color: $text-color;
+
+      a {
+        color: $background-color;
+        opacity: 1;
+      }
+    }
+
+    article {
+      padding: $spacing-unit / 2 $spacing-unit;
+      max-height: 150px;
+      border-bottom: 1px solid $border-color;
+    }
+  }
+}
+
+footer {
+  margin: $spacing-unit;
+  font-size: $base-font-size * 0.75;
+  text-align: right;
+}

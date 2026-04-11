@@ -1,0 +1,44 @@
+{{ $isHome := .IsHome }}
+{{ $pageTitle := site.Title }}
+{{ if not $isHome }}
+  {{ $pageTitle = printf "%s — %s" .Title site.Title }}
+{{ end }}
+{{ $pageURL := .Permalink }}
+{{ if $isHome }}
+  {{ $pageURL = site.BaseURL }}
+{{ end }}
+{{ $description := site.Params.description }}
+{{ with .Params.description }}
+  {{ $description = . }}
+{{ end }}
+{{ $image := "img/reivax.jpg" | absURL }}
+{{ $style := resources.Get "css/style.scss" | toCSS (dict "targetPath" "assets/css/style.css") | minify | fingerprint }}
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{ $pageTitle }}</title>
+
+  <meta name="description" content="{{ $description }}">
+  <meta name="author" content="{{ with .Params.author }}{{ . }}{{ else }}{{ site.Params.author }}{{ end }}">
+  {{ hugo.Generator }}
+
+  <meta itemprop="name" content="{{ $pageTitle }}">
+  <meta itemprop="description" content="{{ $description }}">
+  <meta itemprop="image" content="{{ $image }}">
+
+  <meta property="og:url" content="{{ $pageURL }}">
+  <meta property="og:type" content="{{ if $isHome }}website{{ else }}article{{ end }}">
+  <meta property="og:title" content="{{ $pageTitle }}">
+  <meta property="og:description" content="{{ $description }}">
+  <meta property="og:image" content="{{ $image }}">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ $pageTitle }}">
+  <meta name="twitter:description" content="{{ $description }}">
+  <meta name="twitter:image" content="{{ $image }}">
+
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+  <link rel="canonical" href="{{ $pageURL }}">
+</head>
