@@ -10,3 +10,4 @@ description = "Écoutez les affres, des histoires audio plus sombres qu'elles n'
 author = "Reivax"
 email = "reivax@cafelembas.com"
 website = "https://www.cafelembas.com"
+mediaBaseURL = "https://files.affres-de-reivax.fr"

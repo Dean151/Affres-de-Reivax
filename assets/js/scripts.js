@@ -3,6 +3,19 @@ function trackMatomo(command) {
   queue.push(command);
 }
 
+function enableMatomo() {
+  trackMatomo(["trackPageView"]);
+  trackMatomo(["enableLinkTracking"]);
+  trackMatomo(["setTrackerUrl", "/p/"]);
+  trackMatomo(["setSiteId", "13"]);
+
+  const script = document.createElement("script");
+  script.async = true;
+  script.defer = true;
+  script.src = "/p/";
+  document.head.appendChild(script);
+}
+
 function clickBehavior(event) {
   if (event) {
     event.preventDefault();
@@ -78,4 +91,8 @@ for (const link of document.getElementsByClassName("mono-link")) {
 
 for (const audio of document.getElementsByTagName("audio")) {
   audioBehaviors(audio);
+}
+
+if (!window.location.hostname.includes("localhost")) {
+  enableMatomo();
 }
