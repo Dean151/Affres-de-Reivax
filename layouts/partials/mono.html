@@ -3,8 +3,12 @@
 {{ $isActive := and (not $page.IsHome) (eq $page.RelPermalink $mono.RelPermalink) }}
 {{ $id := anchorize (path.Base $mono.RelPermalink) }}
 {{ $audioURL := printf "files/%s" $mono.Params.file | relURL }}
+{{ $downloadURL := $audioURL }}
 {{ with site.Params.mediaBaseURL }}
   {{ $audioURL = printf "%s/%s" (replaceRE "/+$" "" .) $mono.Params.file }}
+{{ end }}
+{{ with site.Params.downloadBaseURL }}
+  {{ $downloadURL = printf "%s/%s" (replaceRE "/+$" "" .) $mono.Params.file }}
 {{ end }}
 <section id="{{ $id }}"{{ if $isActive }} class="active"{{ end }}>
   <h2><a href="{{ $mono.RelPermalink }}" class="mono-link" data-title="{{ printf "%s — %s" $mono.Title site.Title }}">{{ $mono.Title }}</a></h2>
@@ -13,6 +17,6 @@
     <audio controls="controls" preload="metadata" data-title="{{ $mono.Title }}">
       <source src="{{ $audioURL }}" type="audio/mpeg">
     </audio>
-    <span>{{ $mono.Date.Format "02/01/2006" }} — {{ with $mono.Params.comments }}<a href="{{ . }}" target="_blank" rel="noopener">commenter</a> - {{ end }}<a href="{{ $audioURL }}" class="download-link" download>télécharger</a></span>
+    <span>{{ $mono.Date.Format "02/01/2006" }} — {{ with $mono.Params.comments }}<a href="{{ . }}" target="_blank" rel="noopener">commenter</a> - {{ end }}<a href="{{ $downloadURL }}" class="download-link" download="{{ $mono.Params.file }}">télécharger</a></span>
   </article>
 </section>

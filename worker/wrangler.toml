@@ -1,0 +1,8 @@
+name = "affres-de-reivax-download-proxy"
+main = "src/index.js"
+compatibility_date = "2026-04-11"
+workers_dev = false
+
+[[r2_buckets]]
+binding = "MEDIA_BUCKET"
+bucket_name = "affres-de-reivax"
