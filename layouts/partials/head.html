@@ -21,7 +21,6 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="{{ printf "default-src 'self'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; object-src 'none'; img-src 'self' data:; media-src %s; script-src 'self'; style-src 'self'; connect-src 'self'; upgrade-insecure-requests" (delimit $mediaSources " ") }}">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <title>{{ $pageTitle }}</title>
