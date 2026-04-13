@@ -1,5 +1,18 @@
 {{ $script := resources.Copy "assets/js/scripts.js" (resources.Get "js/scripts.js") | minify | fingerprint }}
 <script src="{{ $script.RelPermalink }}"></script>
-{{ if not (strings.Contains site.BaseURL "localhost") }}
-<noscript><p><img src="/p/?idsite=13&rec=1" alt=""></p></noscript>
+{{ if not hugo.IsServer }}
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://stats.thomasdurand.fr/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '{{ .Site.Params.matomoSiteID }}']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img referrerpolicy="no-referrer-when-downgrade" src="https://stats.thomasdurand.fr/matomo.php?idsite={{ .Site.Params.matomoSiteID }}&amp;rec=1" style="border:0;" alt="" /></p></noscript>
 {{ end }}

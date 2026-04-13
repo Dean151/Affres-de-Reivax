@@ -9,6 +9,7 @@ disableKinds = ["taxonomy", "term", "RSS"]
 description = "Écoutez les affres, des histoires audio plus sombres qu'elles n'y paraissent."
 author = "Reivax"
 email = "reivax@cafelembas.com"
+matomoSiteID = 13
 website = "https://www.cafelembas.com"
 mediaBaseURL = "https://media.affres-de-reivax.fr"
 downloadBaseURL = "https://download.affres-de-reivax.fr"
