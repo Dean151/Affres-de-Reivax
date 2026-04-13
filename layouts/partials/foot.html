@@ -7,12 +7,12 @@
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
-    var u="https://stats.thomasdurand.fr/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setTrackerUrl', 'https://mtr.thomasdurand.fr/']);
+    _paq.push(['setAPIUrl', 'https://mtm.thomasdurand.fr/']);
     _paq.push(['setSiteId', '{{ .Site.Params.matomoSiteID }}']);
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    g.async=true; g.src='https://mtr.thomasdurand.fr/'; s.parentNode.insertBefore(g,s);
   })();
 </script>
-<noscript><p><img referrerpolicy="no-referrer-when-downgrade" src="https://stats.thomasdurand.fr/matomo.php?idsite={{ .Site.Params.matomoSiteID }}&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+<noscript><p><img referrerpolicy="no-referrer-when-downgrade" src="https://mtr.thomasdurand.fr/?idsite={{ .Site.Params.matomoSiteID }}&amp;rec=1" style="border:0;" alt="" /></p></noscript>
 {{ end }}
