@@ -1,5 +1,5 @@
 baseURL = "https://www.affres-de-reivax.fr/"
-languageCode = "fr"
+locale = "fr"
 defaultContentLanguage = "fr"
 title = "Les affres de Reivax"
 uglyURLs = true
