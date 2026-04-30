@@ -13,7 +13,6 @@ jobs:
       uses: peaceiris/actions-hugo@v3
       with:
         hugo-version: '0.160.1' # 0.161.0 and more require node >= 22
-        extended: true
     - name: Build
       run: hugo --minify
     - name: Deploy

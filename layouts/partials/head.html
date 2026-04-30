@@ -16,7 +16,7 @@
 {{ with site.Params.mediaBaseURL }}
   {{ $mediaSources = $mediaSources | append . }}
 {{ end }}
-{{ $style := resources.Get "css/style.scss" | toCSS (dict "targetPath" "assets/css/style.css") | minify | fingerprint }}
+{{ $style := resources.Get "css/style.css" | minify | fingerprint }}
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
